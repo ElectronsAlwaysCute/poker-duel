@@ -1,0 +1,12 @@
+﻿# runtime / build outputs
+dist/
+android/build/
+android/dist/
+android/assets/
+android/keystore/
+node_modules/
+*.log
+
+# local training / evaluation data (not part of the game source)
+tools/tmp-v28/
+github-publish/

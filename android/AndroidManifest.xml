@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 扑克牌·比大小 Android WebView 壳（v2.10.1）
+     两种模式：
+     1) 单机离线：file:///android_asset/index.html（内置资产，无需网络）
+     2) 局域网联机：加载 PC 上 node server.js 提供的地址（http://<host>:5211/index.html）
+        —— 与桌面浏览器联机完全同一套服务器/协议，本 APP 只是 WebView 客户端。
+     INTERNET 权限 + 允许明文 HTTP（局域网 IP 无 HTTPS）用于联机模式。 -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pokerduel.app"
+    android:versionCode="24"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="34" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize|uiMode"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>扑克牌 · 比大小</title>
+  <meta name="description" content="单机卡牌策略游戏：战前布局 → 战役消耗 → 战略决战。离线可直接打开游玩。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b3327'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23d9b45b'%3E%E2%99%A0%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app" class="app"></div>
+  <noscript>
+    <div class="noscript-tip">本游戏需要启用 JavaScript 才能游玩，请在浏览器设置中开启后刷新页面。</div>
+  </noscript>
+
+  <!-- 加载顺序固定：engine → ai → ai-ml → ai-pure-simple（简单 gen60 H96） → ai-pure（中等 gen241 H128） → ai-pure-hard（困难 交付 H192 gen436） → net → music → sfx → ui → main（传统 script，file:// 可直接运行） -->
+  <script src="js/engine.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/ai-ml.js"></script>
+  <script src="js/ai-pure-simple.js"></script>
+  <script src="js/ai-pure.js"></script>
+  <script src="js/ai-pure-hard.js"></script>
+  <script src="js/net.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/sfx.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

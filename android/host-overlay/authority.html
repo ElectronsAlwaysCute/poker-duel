@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>PokerDuel Host Authority</title>
+<style>html,body{margin:0;background:#0b0f1a;color:#888;font:12px monospace}</style>
+</head>
+<body>
+<div id="status">authority loading...</div>
+<!-- 复用产品引擎（只读，不修改）；本页面仅用于 Android 隐藏 WebView 内运行权威服务器 -->
+<script src="../js/engine.js"></script>
+<script src="./lan_authority.js"></script>
+<script>
+(function () {
+  var statusEl = document.getElementById('status');
+  function reply(id, text) {
+    try { window.HostBridge.onResult(id, String(text)); } catch (e) { /* ignore */ }
+  }
+  function fail(id, err) {
+    reply(id, JSON.stringify({ status: 500, body: { ok: false, error: { code: 'INTERNAL', message: String(err && err.message ? err.message : err) } } }));
+  }
+  try {
+    if (typeof createLanAuthority !== 'function') throw new Error('createLanAuthority 未加载');
+    if (!window.PokerEngine) throw new Error('PokerEngine 未加载');
+    window.__lanAuthority = createLanAuthority();
+    statusEl.textContent = 'authority ready v' + window.__lanAuthority.VERSION;
+
+    window.__authorityCall = function (id, method, path, queryJson, headersJson, bodyJson) {
+      try {
+        var query = {};
+        var headers = {};
+        try { query = JSON.parse(queryJson || '{}'); } catch (e1) { query = {}; }
+        try { headers = JSON.parse(headersJson || '{}'); } catch (e2) { headers = {}; }
+        var res = window.__lanAuthority.handle(method, path, query, bodyJson || '', headers);
+        reply(id, JSON.stringify(res));
+      } catch (err) { fail(id, err); }
+    };
+    window.__authorityPoll = function (id, code, token, since) {
+      try {
+        var res = window.__lanAuthority.poll(code, token, since);
+        reply(id, JSON.stringify(res));
+      } catch (err) { fail(id, err); }
+    };
+    window.__authorityDisconnect = function (code, token) {
+      try { window.__lanAuthority.disconnect(code, token); } catch (e) { /* ignore */ }
+    };
+    window.__authorityInfo = function (id) {
+      try { reply(id, JSON.stringify({ status: 200, body: window.__lanAuthority.info() })); } catch (err) { fail(id, err); }
+    };
+    try { window.HostBridge.onReady(); } catch (e) { /* ignore */ }
+  } catch (err) {
+    statusEl.textContent = 'authority error: ' + (err && err.message ? err.message : err);
+  }
+})();
+</script>
+</body>
+</html>
