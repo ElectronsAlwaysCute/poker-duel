@@ -65,7 +65,7 @@
 
 ### Android
 
-- 安装包：`android/dist/poker-duel-v1.0.apk`（versionName 1.0，versionCode 24，minSdk 23 / targetSdk 34）；
+- 安装包：`android/dist/poker-duel-v1.01.apk`（versionName 1.01，versionCode 25，minSdk 23 / targetSdk 34）；
 - 构建：`powershell -ExecutionPolicy Bypass -File android/build.ps1`（需要 JDK17 + Android SDK build-tools 34）；
 - 支持三种模式：单机离线、手机当房主（本机 LAN 服务器）、加入联机；详见 [android/README.md](android/README.md)。
 
@@ -124,6 +124,7 @@ node --test tests/engine-apcap.test.js
 - [局域网联机说明](docs/LAN.md)
 - [Android APK 说明](android/README.md)
 - [v2.18/v1.0 决策记录（困难档与版本号）](docs/DECISION-v2.18.0-hard-ai-gen436.md)
+- [旧版内部开发/变更记录（归档）](docs/INTERNAL-DESIGN-README.md)
 
 ## 已知限制
 
@@ -134,7 +135,7 @@ node --test tests/engine-apcap.test.js
 
 ## 版本
 
-- 游戏版本：**v1.0**
+- 游戏版本：**v1.01**
 - 规则引擎：**1.7.0**
 - AI：简单 H96/gen60、中等 H128/gen241、困难 H192/gen436（均为纯学习策略）
 

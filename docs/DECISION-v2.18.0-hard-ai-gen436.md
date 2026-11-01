@@ -95,3 +95,14 @@
 - 产物（修订重建）：Web `dist/poker-duel-web-v1.0.zip`（5,302,581B，sha `A3F7699D…7204`，41 entries）；APK `android/dist/poker-duel-v1.0.apk`（5,327,821B，sha `8BBC88A3…5BE0`，versionCode 24 / versionName 1.0，v1+v2+v3 verified）。
 - GitHub 入口 README 已重写为产品介绍（旧版内部开发记录归档到 `docs/INTERNAL-DESIGN-README.md`）。
 - 记录：`tools/tmp-v28/phase17/eval/release-1.0-summary.json`、`release-verify-1.0.json`；v2.18.1/v2.18.0/v2.17 APK 保留可回退。
+
+## 9. v1.01：规则说明移入规则弹层（2026-11-01）
+
+- 用户要求：日志中的「战略决战行动点上限规则」不应出现在对局日志，改为放在右上角「规则」文本中。
+- 修复：
+  - `js/engine.js`：`createGame` 不再向 `state.log` 追加该规则说明。
+  - `js/ui.js`：`RULES_SECTIONS` 的「五、战略决战」新增规则说明：主动结束回合未花完 AP → 之后回补上限 -1（最低 0）；用尽 → +1（最高 3）；上限降至 0 判负。
+- QA（headless Edge）：开局日志 `ruleInLog=false`；规则弹层 `ruleInRulesModal=true`。
+- 版本：产品 **1.01**；Android versionCode **25** / versionName 1.01。
+- 产物：Web `dist/poker-duel-web-v1.01.zip`（5,302,599B，sha `1C5BF563…6A1E`，41 entries）；APK `android/dist/poker-duel-v1.01.apk`（5,327,821B，sha `7986B716…BFB2`，v1+v2+v3 verified）。
+- 记录：`tools/tmp-v28/phase17/eval/release-1.01-summary.json`、`release-verify-1.01.json`。

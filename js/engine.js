@@ -626,9 +626,6 @@
     appendLog(state, '战前布局：双方各摸 ' + cfg.initialDraw + ' 张牌，各自选择 ' + cfg.layoutCount + ' 张背面朝上放入区域（双方完成后同时揭示）', 'info');
     appendLog(state, '行动点规则：每回合回复到 ' + AP_PER_TURN + ' 点；结算消耗 ' + ACTION_COSTS.settle + ' 点、摸牌/翻牌 ' +
       ACTION_COSTS.draw + ' 点、移牌/放牌 ' + ACTION_COSTS.place + ' 点；可随时提前结束回合', 'info');
-    if (cfg.endgameApCapRule) {
-      appendLog(state, '战略决战行动点上限规则：build 阶段结束回合时，未花费行动点则上限 -1（最低 0），用尽则上限 +1（最高 3）；上限降至 0 判负', 'info');
-    }
     if (cfg.turnTimeLimit > 0) {
       appendLog(state, '回合倒计时：每回合 ' + cfg.turnTimeLimit + ' 秒，超时自动结束回合', 'info');
     }

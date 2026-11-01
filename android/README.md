@@ -1,18 +1,18 @@
-# 扑克牌·比大小 —— 安卓 APK（v1.0：中等=H128/gen241、简单=H96/gen60、困难=H192/gen436，均为纯学习）
+# 扑克牌·比大小 —— 安卓 APK（v1.01：中等=H128/gen241、简单=H96/gen60、困难=H192/gen436，均为纯学习）
 
-> 产物：`android/dist/poker-duel-v1.0.apk`
+> 产物：`android/dist/poker-duel-v1.01.apk`
 > 大小：5,327,821 字节（约 5.08 MB）
-> SHA-256：`8BBC88A302D4F33DCDB1CFCDF779E45654B50086A9B4A777F04E2E1A13CC5BE0`
-> 包名：`com.pokerduel.app`　versionCode 24 / versionName 1.0　minSdk 23 / targetSdk 34
-> 游戏版本：**v1.0 正式版**（简单 = H96 / gen60；中等 = H128 / gen241；困难 = H192 / gen436，均为纯学习 policy-only；困难档为交付 PPO 模型；layout 沿用产品阶段基线；engine **1.7.0** 规则与 guard 不变；拖拽可选、安卓默认关闭等 v2.17 客户端行为保留；v2.18.1 起难度文案简化为 HXX/genN 代；v1.0 仅版本号统一，模型/规则不变。）
+> SHA-256：`7986B71616643F095BAEB3ADC7155244BD37F318D057F93FC7E0D03470F2BFB2`
+> 包名：`com.pokerduel.app`　versionCode 25 / versionName 1.01　minSdk 23 / targetSdk 34
+> 游戏版本：**v1.01**（简单 = H96 / gen60；中等 = H128 / gen241；困难 = H192 / gen436，均为纯学习 policy-only；困难档为交付 PPO 模型；layout 沿用产品阶段基线；engine **1.7.0** 规则与 guard 不变；拖拽可选、安卓默认关闭等 v2.17 客户端行为保留；v2.18.1 起难度文案简化为 HXX/genN 代；v1.01 将「战略决战行动点上限规则」从开局日志移到右上角规则弹层，并统一版本号。）
 > 强度说明（必须阅读）：困难档官方交付口径 canon27 vs 产品 ML 2.3.0 **62.63%（n=1080，W/L/D 667/398/15，Wilson [59.68,65.48]；0 error/illegal/forfeit）**；产品侧独立复评 **63.95%（n=540 独立 seed 段，0/0/0）**；浏览器决策 p95 **7.6ms**（293 决策，headless Edge；预算 ≤50ms）；**70% 目标未达到**（正式最强 A H256 gen255 = 65.03%）。中等档 gen241 数字与 v2.17 相同（canon27 研究口径 56.0–56.6%；产品口径 60.93%）；简单档 gen60 为 H96 小模型，强度低于 gen195。研究口径（旧规则、无 guard）与产品口径（新规则+guard）不同，均如实标注。
-> 签名：自签 RSA 2048（v1+v2+v3），证书 `CN=Poker Duel`；keystore 与口令不随仓库分发（仅本机保留），对外分发请自行生成新 keystore。
+> 签名：自签 RSA 2048（v1+v2+v3），证书 `CN=Poker Duel`；keystore `android/keystore/pokerduel-release.keystore`（口令 `pokerduel`，仅本机使用；对外分发请更换）。
 ## 1. 安装
 
 - **手机直接安装**：把 APK 传到手机（微信/QQ/数据线/网盘）→ 文件管理器点击安装 → 如提示「禁止安装未知来源应用」，为该文件管理器允许「安装未知应用」。
 - **adb**：手机开启 USB 调试后
   ```powershell
-  & "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" install -r D:\GAME\poker-duel\android\dist\poker-duel-v1.0.apk
+  & "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" install -r D:\GAME\poker-duel\android\dist\poker-duel-v1.01.apk
   ```
 
 ## 2. 三种模式（启动选择；右上角 ⚙ 随时切换）
@@ -111,7 +111,7 @@ android/
 │   ├── HostServer.java            # 手机当房主：HTTP/SSE + 静态资源 + /api/* 转发
 │   └── HostAuthority.java         # 隐藏 WebView + JS 桥（同步调用权威）
 ├── res/ assets/ keystore/ build/ dist/
-└── dist/poker-duel-v1.0.apk
+└── dist/poker-duel-v1.01.apk
 ```
 
 ## 8. 卸载 / 回滚
