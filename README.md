@@ -141,5 +141,5 @@ node --test tests/engine-apcap.test.js
 
 ## 素材与许可
 
+- 代码：**MIT License**（见 [LICENSE](LICENSE)）——可自由使用、修改、分发，需保留版权与许可声明。
 - 音效素材：Kenney（CC0）；背景音乐与其余素材见对应目录，使用/分发前请自行确认授权。
-- 本项目未附带开源许可证；如需复用代码或素材，请先确认授权范围。
